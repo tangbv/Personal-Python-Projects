@@ -2,7 +2,7 @@
 #
 # EOF (end-of-file) token is used to indicate that
 # there is no more input left for lexical analysis
-INTEGER, PLUS, MINUS, EOF =  'INTEGER', 'PLUS', 'MINUS', 'EOF'
+INTEGER, PLUS, MINUS, MULTIPLY, DIVIDE, EOF =  'INTEGER', 'PLUS', 'MINUS', 'MULTIPLY', 'DIVIDE', 'EOF'
 
 class Token(object):
     def __init__(self, type, value):
@@ -36,8 +36,11 @@ class Interpreter(object):
         # current token instance
         self.current_char = self.text[self.pos]
 
-    def error(self):
+    def error(self, text=""):
+        if text == 0:
+            raise Exception("Cannot divide by zero")
         raise Exception('Error parsing input')
+
 
     def advance(self):
         """Advance the 'pos' pointer and set the 'current_char' var"""
@@ -82,6 +85,14 @@ class Interpreter(object):
                 self.advance()
                 return Token(MINUS, '-')
 
+            if self.current_char == "*":
+                self.advance()
+                return Token(MULTIPLY, '*')
+            
+            if self.current_char == "/":
+                self.advance()
+                return Token(DIVIDE, '/')
+
             self.error()
 
 
@@ -103,12 +114,15 @@ class Interpreter(object):
         left = self.current_token
         self.eat(INTEGER)
 
-        # expect current token to now be "+" or "-" token
         op = self.current_token
         if op.type == PLUS:
             self.eat(PLUS)
-        else:
+        elif op.type == MINUS:
             self.eat(MINUS)
+        elif op.type == MULTIPLY:
+            self.eat(MULTIPLY)
+        else:
+            self.eat(DIVIDE)
 
         # expect that first token will be an single digit integer
         right = self.current_token
@@ -117,8 +131,15 @@ class Interpreter(object):
         # self.current_token should now be EOF
         if op.type == PLUS:
             result = left.value + right.value
-        else:
+        elif op.type == MINUS:
             result = left.value - right.value
+        elif op.type == MULTIPLY:
+            result = left.value * right.value
+        else:
+            if right.value != 0:
+                result = left.value / right.value
+            else:
+                self.error(0)
         return result
 
 def main():
