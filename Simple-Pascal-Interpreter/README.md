@@ -17,7 +17,7 @@ calc1.py:
     which is only addition for now.
 
 calc2.py:
-    calc2 buils on calc1 by adding functionaly for subtract and whitespace handling.
+    calc2 builds on calc1 by adding functionally for subtraction, multiplication, division, and whitespace handling.
     Token:
     - Type
     - Value
