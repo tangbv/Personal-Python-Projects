@@ -1,0 +1,714 @@
+[
+{
+  "model": "binit.category",
+  "pk": 1,
+  "fields": {
+    "name": "Basic HTML",
+    "description": "An HTML element is defined by a start tag, some content, and an end tag."
+  }
+},
+{
+  "model": "binit.category",
+  "pk": 2,
+  "fields": {
+    "name": "Text Formatting",
+    "description": "HTML contains several elements for defining text with a special meaning."
+  }
+},
+{
+  "model": "binit.category",
+  "pk": 3,
+  "fields": {
+    "name": "Forms and Input",
+    "description": "An HTML form is used to collect user input. The user input is most often sent to a server for processing."
+  }
+},
+{
+  "model": "binit.category",
+  "pk": 4,
+  "fields": {
+    "name": "Links",
+    "description": "Links are found in nearly all web pages. Links allow users to click their way from page to page."
+  }
+},
+{
+  "model": "binit.category",
+  "pk": 5,
+  "fields": {
+    "name": "Lists",
+    "description": "HTML lists allow web developers to group a set of related items in lists."
+  }
+},
+{
+  "model": "binit.category",
+  "pk": 6,
+  "fields": {
+    "name": "Tables",
+    "description": "HTML tables allow web developers to arrange data into rows and columns."
+  }
+},
+{
+  "model": "binit.category",
+  "pk": 7,
+  "fields": {
+    "name": "Programming",
+    "description": "Programming/Javascript elements"
+  }
+},
+{
+  "model": "binit.category",
+  "pk": 8,
+  "fields": {
+    "name": "Styles and Semantics",
+    "description": "define the meaning of the content they contain"
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 1,
+  "fields": {
+    "name": "<!DOCTYPE>",
+    "description": "Defines the document type",
+    "correct_category": 1
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 2,
+  "fields": {
+    "name": "<html>",
+    "description": "Defines an HTML document",
+    "correct_category": 1
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 3,
+  "fields": {
+    "name": "<head>",
+    "description": "Contains metadata/information for the document",
+    "correct_category": 1
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 4,
+  "fields": {
+    "name": "<title>",
+    "description": "Defines a title for the document",
+    "correct_category": 1
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 5,
+  "fields": {
+    "name": "<body>",
+    "description": "Defines the document's body",
+    "correct_category": 1
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 6,
+  "fields": {
+    "name": "<h1> to <h6>",
+    "description": "Defines HTML headings",
+    "correct_category": 1
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 7,
+  "fields": {
+    "name": "<p>",
+    "description": "Defines a paragraph",
+    "correct_category": 1
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 8,
+  "fields": {
+    "name": "<br>",
+    "description": "Inserts a single line break",
+    "correct_category": 1
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 9,
+  "fields": {
+    "name": "<hr>",
+    "description": "Defines a thematic change in the content",
+    "correct_category": 1
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 10,
+  "fields": {
+    "name": "<!-- ... -->",
+    "description": "Defines a comment",
+    "correct_category": 1
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 11,
+  "fields": {
+    "name": "<b>",
+    "description": "Bold Text",
+    "correct_category": 2
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 12,
+  "fields": {
+    "name": "<strong>",
+    "description": "Important text",
+    "correct_category": 2
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 13,
+  "fields": {
+    "name": "<i>",
+    "description": "Italic text",
+    "correct_category": 2
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 14,
+  "fields": {
+    "name": "<em>",
+    "description": "Emphasized text",
+    "correct_category": 2
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 15,
+  "fields": {
+    "name": "<mark>",
+    "description": "Marked text",
+    "correct_category": 2
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 16,
+  "fields": {
+    "name": "<small>",
+    "description": "Smaller text",
+    "correct_category": 2
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 17,
+  "fields": {
+    "name": "<del>",
+    "description": "Deleted text",
+    "correct_category": 2
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 18,
+  "fields": {
+    "name": "<ins>",
+    "description": "Inserted text",
+    "correct_category": 2
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 19,
+  "fields": {
+    "name": "<sub>",
+    "description": "Subscript text",
+    "correct_category": 2
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 20,
+  "fields": {
+    "name": "<sup>",
+    "description": "Superscript text",
+    "correct_category": 2
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 21,
+  "fields": {
+    "name": "<form>",
+    "description": "Defines an HTML form for user input",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 22,
+  "fields": {
+    "name": "<input>",
+    "description": "Defines an input control",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 23,
+  "fields": {
+    "name": "<textarea>",
+    "description": "Defines a multiline input control (text area)",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 24,
+  "fields": {
+    "name": "<button>",
+    "description": "Defines a clickable button",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 25,
+  "fields": {
+    "name": "<select>",
+    "description": "Defines a drop-down list",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 26,
+  "fields": {
+    "name": "<optgroup>",
+    "description": "Defines a group of related options in a drop-down list",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 27,
+  "fields": {
+    "name": "<option>",
+    "description": "Defines an option in a drop-down list",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 28,
+  "fields": {
+    "name": "<label>",
+    "description": "Defines a label for an <input> element",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 29,
+  "fields": {
+    "name": "<fieldset>",
+    "description": "Groups related elements in a form",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 30,
+  "fields": {
+    "name": "<legend>",
+    "description": "Defines a caption for a <fieldset> element",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 31,
+  "fields": {
+    "name": "<datalist>",
+    "description": "Specifies a list of pre-defined options for input controls",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 32,
+  "fields": {
+    "name": "<output>",
+    "description": "Defines the result of a calculation",
+    "correct_category": 3
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 33,
+  "fields": {
+    "name": "<a>",
+    "description": "Defines a hyperlink",
+    "correct_category": 4
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 34,
+  "fields": {
+    "name": "<link>",
+    "description": "Defines the relationship between a document and an external resource (most used to link to style sheets)",
+    "correct_category": 4
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 35,
+  "fields": {
+    "name": "<nav>",
+    "description": "Defines navigation links",
+    "correct_category": 4
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 36,
+  "fields": {
+    "name": "<menu>",
+    "description": "Defines an alternative unordered list",
+    "correct_category": 5
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 37,
+  "fields": {
+    "name": "<ul>",
+    "description": "Defines an unordered list",
+    "correct_category": 5
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 38,
+  "fields": {
+    "name": "<ol>",
+    "description": "Defines an ordered list",
+    "correct_category": 5
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 39,
+  "fields": {
+    "name": "<li>",
+    "description": "Defines a list item",
+    "correct_category": 5
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 40,
+  "fields": {
+    "name": "<dl>",
+    "description": "Defines a description list",
+    "correct_category": 5
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 41,
+  "fields": {
+    "name": "<dt>",
+    "description": "Defines a term/name in a description list",
+    "correct_category": 5
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 42,
+  "fields": {
+    "name": "<dd>",
+    "description": "Defines a description of a term/name in a description list",
+    "correct_category": 5
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 43,
+  "fields": {
+    "name": "<table>",
+    "description": "Defines a table",
+    "correct_category": 6
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 44,
+  "fields": {
+    "name": "<th>",
+    "description": "Defines a header cell in a table",
+    "correct_category": 6
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 45,
+  "fields": {
+    "name": "<tr>",
+    "description": "Defines a row in a table",
+    "correct_category": 6
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 46,
+  "fields": {
+    "name": "<td>",
+    "description": "Defines a cell in a table",
+    "correct_category": 6
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 47,
+  "fields": {
+    "name": "<caption>",
+    "description": "Defines a table caption",
+    "correct_category": 6
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 48,
+  "fields": {
+    "name": "<colgroup>",
+    "description": "Specifies a group of one or more columns in a table for formatting",
+    "correct_category": 6
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 49,
+  "fields": {
+    "name": "<col>",
+    "description": "Specifies column properties for each column within a <colgroup> element",
+    "correct_category": 6
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 50,
+  "fields": {
+    "name": "<thead>",
+    "description": "Groups the header content in a table",
+    "correct_category": 6
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 51,
+  "fields": {
+    "name": "<tbody>",
+    "description": "Groups the body content in a table",
+    "correct_category": 6
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 52,
+  "fields": {
+    "name": "<tfoot>",
+    "description": "Groups the footer content in a table",
+    "correct_category": 6
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 53,
+  "fields": {
+    "name": "<script>",
+    "description": "Defines a client-side script",
+    "correct_category": 7
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 54,
+  "fields": {
+    "name": "<noscript>",
+    "description": "Defines an alternate content for users that do not support client-side scripts",
+    "correct_category": 7
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 55,
+  "fields": {
+    "name": "<embed>",
+    "description": "Defines a container for an external resource",
+    "correct_category": 7
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 56,
+  "fields": {
+    "name": "<object>",
+    "description": "Defines a container for an external resource",
+    "correct_category": 7
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 57,
+  "fields": {
+    "name": "<param>",
+    "description": "Defines a parameter for an object",
+    "correct_category": 7
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 58,
+  "fields": {
+    "name": "<style>",
+    "description": "Defines style information for a document",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 59,
+  "fields": {
+    "name": "<div>",
+    "description": "Defines a section in a document",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 60,
+  "fields": {
+    "name": "<span>",
+    "description": "Defines a section in a document",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 61,
+  "fields": {
+    "name": "<header>",
+    "description": "Defines a header for a document or section",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 62,
+  "fields": {
+    "name": "<hgroup>",
+    "description": "Defines a header and related content",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 63,
+  "fields": {
+    "name": "<footer>",
+    "description": "Defines a footer for a document or section",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 64,
+  "fields": {
+    "name": "<main>",
+    "description": "Specifies the main content of a document",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 65,
+  "fields": {
+    "name": "<section>",
+    "description": "Defines a section in a document",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 66,
+  "fields": {
+    "name": "<search>",
+    "description": "Defines a search section",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 67,
+  "fields": {
+    "name": "<article>",
+    "description": "Defines an article",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 68,
+  "fields": {
+    "name": "<aside>",
+    "description": "Defines content aside from the page content",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 69,
+  "fields": {
+    "name": "<details>",
+    "description": "Defines additional details that the user can view or hide",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 70,
+  "fields": {
+    "name": "<dialog>",
+    "description": "Defines a dialog box or window",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 71,
+  "fields": {
+    "name": "<summary>",
+    "description": "Defines a visible heading for a <details> element",
+    "correct_category": 8
+  }
+},
+{
+  "model": "binit.item",
+  "pk": 72,
+  "fields": {
+    "name": "<data>",
+    "description": "Adds a machine-readable translation of a given content",
+    "correct_category": 8
+  }
+}
+]

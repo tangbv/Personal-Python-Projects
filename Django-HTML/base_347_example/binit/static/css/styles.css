@@ -1,0 +1,69 @@
+#gameForm
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+}
+
+.category-bin {
+  min-height: 150px;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.bin-items {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-around; 
+  gap: 10px;
+  border-top: 1px solid #ddd;
+  padding-top: 5px;
+  min-height: 50px;
+  background-color: #f8f9fa; 
+}
+
+.draggable-item {
+  cursor: grab;
+  width: 100px; 
+  height: 50px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: white; 
+  border: 1px solid #ccc; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+#categories {
+  margin-bottom: 20px;
+}
+
+#item-pile {
+  margin-top: 10px;
+  gap: 5px;
+}
+
+/* Timer styling */
+.timer-container {
+  position: fixed; 
+  top: 70px;
+  right: 20px;
+  background-color: #f8f9fa; 
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  font-size: 1.2rem; 
+  font-weight: bold;
+  color: #333; 
+  z-index: 1000; 
+}
+
+.timer-container h4 {
+  margin: 0; 
+  font-size: 1.5rem; 
+  color: #007bff; 
+}

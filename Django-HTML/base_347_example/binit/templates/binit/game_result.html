@@ -1,0 +1,52 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2 class="mb-4">Game Results</h2>
+    <p><strong>Score:</strong> {{ game.score }}</p>
+    <p><strong>Time Taken:</strong> {{ time_str }}</p>
+
+    {% if high_score %}
+        <p>Your High Score: <strong>{{ high_score.score }}</strong> (Achieved on {{ high_score.date_achieved|date:"M d, Y" }})</p>
+    {% else %}
+        <p>You don't have a high score yet. Play a game to set one!</p>
+    {% endif %}
+
+    <table class="table table-bordered mt-4">
+        <thead class="table-light">
+            <tr>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Your Answer</th>
+                <th>Correct Answer</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for game_item in game_items %}
+                <tr class="{% if game_item.is_correct %}table-success{% else %}table-danger{% endif %}">
+                    <td>{{ game_item.item.name }}</td>
+                    <td>{{ game_item.item.description }}</td>
+                    <td>
+                        {% if game_item.guessed_category %}
+                            {{ game_item.guessed_category.name }}
+                        {% else %}
+                            <em>No Answer</em>
+                        {% endif %}
+                    </td>
+                    <td>{{ game_item.item.correct_category.name }}</td>
+                    <td>
+                        {% if game_item.is_correct %}
+                            ✅ Correct
+                        {% else %}
+                            ❌ Incorrect
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary mt-3" href="{% url 'binit:start_game' %}">Play Again</a>
+</div>
+{% endblock %}

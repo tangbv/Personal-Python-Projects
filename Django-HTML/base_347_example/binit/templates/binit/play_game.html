@@ -1,0 +1,155 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Drag the Items into the Correct Category Bin</h2>
+
+    <!-- Timer Section -->
+    <div id="timer" class="timer-container">
+      <h4>⏱ Time Elapsed: <span id="timeElapsed">0:00</span></h4>
+    </div>
+
+    <!-- Categories Section -->
+    <div id="categories" class="row row-cols-3 g-2 mb-4">
+        {% for category in categories %}
+        <div class="col-md-3">
+            <div class="category-bin card text-center shadow-sm" id="category-{{ category.id }}">
+                <div class="card-header bg-primary text-white toggle-description" style="cursor: pointer;">
+                    <h6 class="card-title">{{ category.name }}</h6>
+                </div>
+                <div class="card-body description" style="display: none;">
+                    <p class="card-text">{{ category.description }}</p>
+                </div>
+                <!-- Container for items (always visible) -->
+                <div class="bin-items mt-2"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <!-- Items Section -->
+    <h3 class="mb-3">Items</h3>
+    <div id="item-pile" class="d-flex flex-wrap gap-3">
+        {% for game_item in game_items %}
+        <div class="draggable-item card shadow-sm" data-item-id="{{ game_item.item.id }}" style="width: 100px; height: 50px;">
+            <div class="card-body text-center">
+                <p class="card-text">{{ game_item.item.name }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Submit Form -->
+    <form id="gameForm" method="POST" class="mt-4">
+        {% csrf_token %}
+        <input type="hidden" name="guesses_json" id="guessesInput">
+        <button type="submit" class="btn btn-success btn-lg">Submit Answers</button>
+    </form>
+</div>
+
+<!-- Dragula Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css" />
+
+<script>
+  // Timer variables
+  let startTime = Date.now();
+  const timerElement = document.getElementById('timeElapsed');
+
+  // Function to update the timer
+  function updateTimer() {
+    const elapsedTime = Math.floor((Date.now() - startTime) / 1000); // Time in seconds
+    const minutes = Math.floor(elapsedTime / 60);
+    const seconds = elapsedTime % 60;
+    timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  // Start the timer and update it every second
+  const timerInterval = setInterval(updateTimer, 1000);
+
+  // Stop the timer when the form is submitted
+  const form = document.getElementById('gameForm');
+  form.addEventListener('submit', function () {
+    clearInterval(timerInterval); // Stop the timer
+  });
+
+  // Gather all category containers
+  const categoryBins = document.querySelectorAll('.category-bin .bin-items'); // Target only the bin-items
+  const itemPile = document.getElementById('item-pile'); // The pile of draggable items
+
+  // Only make the items draggable, not the bins
+  const containers = [itemPile, ...categoryBins];
+  const drake = dragula(containers, {
+    accepts: function (el, target) {
+      // Allow dragging items into bin-items, but not bins themselves
+      return target.classList.contains('bin-items');
+    },
+    moves: function (el, source, handle, sibling) {
+      // Only allow dragging items, not bins or descriptions
+      return el.classList.contains('draggable-item');
+    }
+  });
+
+  // Toggle descriptions on click
+  document.querySelectorAll('.toggle-description').forEach(header => {
+    header.addEventListener('click', () => {
+      const description = header.nextElementSibling;
+      if (description.style.display === 'none') {
+        description.style.display = 'block';
+      } else {
+        description.style.display = 'none';
+      }
+    });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    const guesses = {};
+
+    categoryBins.forEach(bin => {
+      const categoryId = bin.parentElement.id.split('-')[1]; // Get the category ID from the parent
+      const items = bin.querySelectorAll('.draggable-item');
+
+      items.forEach(item => {
+        const itemId = item.dataset.itemId;
+        guesses[itemId] = categoryId;
+      });
+    });
+
+    guessesInput.value = JSON.stringify(guesses);
+
+    // Send the form data using fetch
+    fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+      },
+      body: new URLSearchParams({
+        guesses_json: guessesInput.value,
+      }),
+    })
+      .then(response => {
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          return response.json();
+        } else {
+          throw new Error('Unexpected response format');
+        }
+      })
+      .then(data => {
+        if (data.redirect_url) {
+          window.location.href = data.redirect_url;
+        } else {
+          console.error('Error:', data.error || 'Unknown error');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  });
+</script>
+{% endblock %}
