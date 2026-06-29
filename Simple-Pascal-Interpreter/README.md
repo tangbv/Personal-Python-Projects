@@ -31,3 +31,6 @@ calc2.py:
 
 calc3.py
     Builds on calc2 with added functionality for an arbitrary number of expressions.
+
+calc4.py
+    Refactored to split code into Lexer and interpreter classes
