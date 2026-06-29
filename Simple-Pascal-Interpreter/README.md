@@ -1,5 +1,6 @@
 # Simple-Pascal-Interpreter
-This is a simple pascal interpreter built with python to translate 
+
+This is a simple pascal interpreter built with python to translate
 a source program of some high-levl program into another form.
 
 calc1.py:
@@ -27,3 +28,6 @@ calc2.py:
     - pos
     - current_token
     - current_char
+
+calc3.py
+    Builds on calc2 with added functionality for an arbitrary number of expressions.
