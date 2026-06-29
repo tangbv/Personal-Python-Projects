@@ -34,3 +34,6 @@ calc3.py
 
 calc4.py
     Refactored to split code into Lexer and interpreter classes
+
+calc5.py
+    Interpreter now handles order of operations by being left-associative.
