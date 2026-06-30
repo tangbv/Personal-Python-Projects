@@ -40,3 +40,6 @@ calc5.py
 
 calc6.py
     Added parenthesized (nested) expression handling.
+
+spi.py
+    Interpreter now uses an AST.
