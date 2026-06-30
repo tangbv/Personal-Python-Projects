@@ -37,3 +37,6 @@ calc4.py
 
 calc5.py
     Interpreter now handles order of operations by being left-associative.
+
+calc6.py
+    Added parenthesized (nested) expression handling.
