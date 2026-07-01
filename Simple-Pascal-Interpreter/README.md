@@ -46,3 +46,6 @@ spi.py
 
 spi2.py
     Added unary operators.
+
+spi3.py
+    Added Pascal grammar rules.
