@@ -43,3 +43,6 @@ calc6.py
 
 spi.py
     Interpreter now uses an AST.
+
+spi2.py
+    Added unary operators.
